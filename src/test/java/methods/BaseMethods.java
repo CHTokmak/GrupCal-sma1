@@ -173,9 +173,22 @@ public class BaseMethods {
         if (miliSeconds % 1000 != 0)
             logger.info(miliSeconds + " milisaniye beklendi");
     }
-     public void scrollDownByPixels(){
+     public void scrollDownBottom(){
         jsDriver.executeScript("window.scrollBy(0,document.body.scrollHeight)");
      }
-     //scroll untill bottom of the page
+     //scroll untill bottom of the page,
+    public void scrollByElementJs(WebElement element){
+        jsDriver.executeScript("arguments[0].scrollIntoView();", element);
+
+    }
+    public void scrollUpTop(){
+        jsDriver.executeScript("window.scrollBy(document.body.scrollHeight,0)");
+    }
+
+    public void scrollByPixel(Integer x , Integer y){
+        jsDriver.executeScript("window.scrollBy(arguments[0],arguments[1]);", x , y);
+    }
+
+
 
 }

@@ -43,7 +43,7 @@ public class Driver {
         chromeOptions.merge(desiredCapabilities);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-        driver.get("https://www.turkishairlines.com/");
+        driver.get("https://www.flypgs.com/");
 
 
     }

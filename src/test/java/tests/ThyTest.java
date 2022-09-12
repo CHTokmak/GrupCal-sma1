@@ -9,7 +9,8 @@ public class ThyTest extends Driver {
     public void generalTest(){
 
         HomePage homePage = new HomePage(driver);
-        homePage.openableTest();
+        homePage.gidisdonus();
+
 
 
 

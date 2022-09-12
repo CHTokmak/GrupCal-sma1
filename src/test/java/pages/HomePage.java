@@ -8,8 +8,10 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BaseMethods {
     public HomePage(WebDriver driver){}
 
-    public void openableTest () {
-        waitBySeconds(1);
+    public void gidisdonus () {
+
+
+
     }
 
 
