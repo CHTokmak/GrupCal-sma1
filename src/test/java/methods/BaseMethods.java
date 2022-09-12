@@ -177,7 +177,8 @@ public class BaseMethods {
         jsDriver.executeScript("window.scrollBy(0,document.body.scrollHeight)");
      }
      //scroll untill bottom of the page,
-    public void scrollByElementJs(WebElement element){
+    public void scrollByElementJs(By by){
+        WebElement element = findElement(by);
         jsDriver.executeScript("arguments[0].scrollIntoView();", element);
 
     }
@@ -188,7 +189,13 @@ public class BaseMethods {
     public void scrollByPixel(Integer x , Integer y){
         jsDriver.executeScript("window.scrollBy(arguments[0],arguments[1]);", x , y);
     }
+    public void sendKeysJs(By by, String text){
+        WebElement webElement = findElementWait(by);
+        jsDriver.executeScript("arguments[0].value=arguments[1];", webElement,text);
 
-
+    }
+    public void windowRefresh(){
+        jsDriver.executeScript("location.reload()");
+    }
 
 }

@@ -9,8 +9,22 @@ public class HomePage extends BaseMethods {
     public HomePage(WebDriver driver){}
 
     public void gidisdonus () {
-
-
+        waitByMiliSeconds(250);
+        scrollByPixel(0,250);
+        waitByMiliSeconds(250);
+        clickElementJs(By.xpath("(//div[@class=\"nxm-360-search-selected-title nxm-360-departure-name\"])[1]"));
+        waitByMiliSeconds(500);
+        sendKeysJs(By.xpath("(//input[@class=\"nxm-360-search-select-airpot-list-input nxm-360-search-input\"])[1]"),"Istanbul");
+        waitBySeconds(2);
+        windowRefresh();
+        waitBySeconds(2);
+        scrollDownBottom();
+        waitBySeconds(2);
+        scrollUpTop();
+        waitBySeconds(3);
+        scrollByElementJs(By.xpath("//a[@href=\"#panel1\"]"));
+        waitBySeconds(3);
+        //Js komutlarının kullanımı için örnektir
 
     }
 
