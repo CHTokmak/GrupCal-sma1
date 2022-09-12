@@ -198,4 +198,8 @@ public class BaseMethods {
         jsDriver.executeScript("location.reload()");
     }
 
+    public void previousPage(){
+        jsDriver.executeScript("window.history.go(-1)");
+    }
+
 }

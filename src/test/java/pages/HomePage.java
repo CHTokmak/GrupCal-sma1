@@ -24,9 +24,15 @@ public class HomePage extends BaseMethods {
         waitBySeconds(3);
         scrollByElementJs(By.xpath("//a[@href=\"#panel1\"]"));
         waitBySeconds(3);
+        clickElement(By.xpath("//a[@href=\"/kampanyali-ucak-biletleri\"]"));
+        waitBySeconds(2);
+        previousPage();
+        waitBySeconds(2);
+
         //Js komutlarının kullanımı için örnektir
 
     }
+
 
 
 }
