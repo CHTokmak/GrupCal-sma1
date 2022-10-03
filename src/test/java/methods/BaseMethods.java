@@ -21,7 +21,7 @@ public class BaseMethods {
     public BaseMethods(){
         this.driver = Driver.driver;
         jsDriver = (JavascriptExecutor) driver;
-        fluentWait = setFluentWait(30);
+        fluentWait = setFluentWait(10);
     }
 
     public FluentWait<WebDriver> setFluentWait(long timeout){

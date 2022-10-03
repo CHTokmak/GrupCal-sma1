@@ -2,6 +2,7 @@ package tests;
 
 import drivers.Driver;
 import org.junit.jupiter.api.Test;
+import pages.CampaignPage;
 import pages.HomePage;
 
 public class ThyTest extends Driver {
@@ -9,7 +10,10 @@ public class ThyTest extends Driver {
     public void generalTest(){
 
         HomePage homePage = new HomePage(driver);
-        homePage.gidisdonus();
+        CampaignPage campaignPage = new CampaignPage(driver);
+        homePage.goToCampaignPage();
+        campaignPage.campaignSets();
+
 
 
 

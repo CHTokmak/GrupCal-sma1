@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BaseMethods {
     public HomePage(WebDriver driver){}
 
-    public void gidisdonus () {
+    /*public void gidisdonus () {
         waitByMiliSeconds(250);
         scrollByPixel(0,250);
         waitByMiliSeconds(250);
@@ -30,6 +30,16 @@ public class HomePage extends BaseMethods {
         waitBySeconds(2);
 
         //Js komutlarının kullanımı için örnektir
+
+    }*/
+
+    //public final
+
+    public void goToCampaignPage(){
+        clickElement(By.id("nxm2CookieSubmitButton"));
+        waitByMiliSeconds(250);
+        clickElement(By.xpath("//a[text()=\"KAMPANYALAR\"]"));
+        waitByMiliSeconds(250);
 
     }
 
