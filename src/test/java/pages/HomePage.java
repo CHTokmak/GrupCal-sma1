@@ -8,12 +8,11 @@ import org.openqa.selenium.WebDriver;
 import java.util.Random;
 
 public class HomePage extends BaseMethods {
+
     public HomePage(WebDriver driver){}
     public void goToFlightTab(){
         clickElement(By.id("nxm2CookieSubmitButton"));
         waitByMiliSeconds(250);
-        //clickElement(By.xpath("//a[text()=\"KAMPANYALAR\"]"));
-        //waitByMiliSeconds(250);
         scrollByPixel(0,250);
         clickElement(By.xpath("(//div[contains(text(),\"Nereden\")])[2]"));
         waitByMiliSeconds(500);
@@ -41,6 +40,21 @@ public class HomePage extends BaseMethods {
         clickElement(By.xpath("(//a[text() = \"TAMAM\"])[1]"));
         waitByMiliSeconds(250);
         clickElement(By.xpath("//button[text() = \"Ucuz Uçuş Ara\"]"));
+        String depDate = getText(By.xpath("(//span[@class=\"value\"])[1]"));
+        String arivDate = getText(By.xpath("(//span[@class=\"value\"])[2]"));
+        String[] depDateSep = depDate.split("\\s");
+        String[] arivDateSep = arivDate.split("\\s");
+        integerDateToString(monthOfYear + 1);
+        Assertions.assertEquals(depDateSep[0] + " " + depDateSep[1],dayOfMonthStr + " " + monthName,"Uçuş günleri eşleşmemekte");
+        System.out.println("Uçuş günü eşleşmiştir");
+        System.out.println("Uçuş günü: " + depDateSep[0] + " " + depDateSep[1] + " " + depDateSep[2]);
+        integerDateToString(monthInt);
+        Assertions.assertEquals(arivDateSep[0] + " " + arivDateSep[1],dayStr + " " + monthName,"Uçuş günleri eşleşmemekte");
+        System.out.println("Uçuş günü eşleşmiştir");
+        System.out.println("Uçuş günü: " + arivDateSep[0] + " " + arivDateSep[1] + " " + arivDateSep[2]);
+        waitByMiliSeconds(500);
+        previousPage();
+        waitBySeconds(3);
     }
 
 

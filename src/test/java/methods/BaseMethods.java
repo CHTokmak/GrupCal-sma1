@@ -27,6 +27,14 @@ public class BaseMethods {
 
     public String dayOfMonthStr;
 
+    public int dayOfMonth;
+
+    public int monthOfYear;
+
+    public String monthName;
+
+    public int monthInt;
+
 
     WebDriver driver;
     FluentWait<WebDriver> fluentWait;
@@ -224,8 +232,8 @@ public class BaseMethods {
     }
     public void dateSelectionWithRealTime (){
         Calendar cal = Calendar.getInstance();
-        int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
-        int monthOfYear = cal.get(Calendar.MONTH);
+        dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+        monthOfYear = cal.get(Calendar.MONTH);
         monthOfYearStr = String.valueOf(monthOfYear);
         dayOfMonthStr = String.valueOf(dayOfMonth);
         clickElementJs(By.xpath("//td[@data-month=\""+monthOfYearStr+"\"]//a[text()=\""+dayOfMonthStr+"\"]"));
@@ -240,6 +248,48 @@ public class BaseMethods {
             else {clickElementJs(By.xpath("//td[@data-month=\""+monthStr+"\"]//a[text()=\""+dayStr+"\"]"));
                 break;
             }
+        }
+        monthInt = m;
+    }
+    public void integerDateToString(Integer x){
+        if(x == 1){
+            monthName = "Oca";
+        }
+        else if (x == 2) {
+            monthName = "Şub";
+        }
+        else if (x == 3) {
+            monthName = "Mar";
+        }
+        else if (x == 4) {
+            monthName = "Nis";
+        }
+        else if (x == 5) {
+            monthName = "May";
+        }
+        else if (x == 6) {
+            monthName = "Haz";
+        }
+        else if (x == 7) {
+            monthName = "Tem";
+        }
+        else if (x == 8) {
+            monthName = "Ağu";
+        }
+        else if (x == 9) {
+            monthName = "Eyl";
+        }
+        else if (x == 10) {
+            monthName = "Eki";
+        }
+        else if (x == 11) {
+            monthName = "Kas";
+        }
+        else if (x == 12) {
+            monthName = "Ara";
+        }
+        else {
+            System.out.println("Geçersiz");
         }
     }
 
