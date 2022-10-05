@@ -9,10 +9,24 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Random;
 
 public class BaseMethods {
     private static final Logger logger = LogManager.getLogger(Driver.class);
+
+    public String monthStr;
+
+    public String dayStr;
+
+    public String monthOfYearStr;
+
+    public String dayOfMonthStr;
+
 
     WebDriver driver;
     FluentWait<WebDriver> fluentWait;
@@ -201,5 +215,36 @@ public class BaseMethods {
     public void previousPage(){
         jsDriver.executeScript("window.history.go(-1)");
     }
+
+    public void clickByRandom(String xpath){
+        List<WebElement> elements = driver.findElements(By.xpath(xpath));
+        Random rand = new Random();
+        int index = rand.nextInt(elements.size()-1);
+        elements.get(index).click();
+    }
+    public void dateSelectionWithRealTime (){
+        Calendar cal = Calendar.getInstance();
+        int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+        int monthOfYear = cal.get(Calendar.MONTH);
+        monthOfYearStr = String.valueOf(monthOfYear);
+        dayOfMonthStr = String.valueOf(dayOfMonth);
+        clickElementJs(By.xpath("//td[@data-month=\""+monthOfYearStr+"\"]//a[text()=\""+dayOfMonthStr+"\"]"));
+    }
+    public void dateSelectionDesiredTime(Integer d,Integer m){
+        dayStr = String.valueOf(d);
+        monthStr = String.valueOf(m-1);
+        for(int i = 0 ; i<12 ;i++){
+            if(isElementVisible(By.xpath("//td[@data-month=\""+monthStr+"\"]//a[text()=\""+dayStr+"\"]"),1) == false){
+                clickElementJs(By.xpath("(//a[@class=\"ui-datepicker-next ui-corner-all\"])[2]"));
+            }
+            else {clickElementJs(By.xpath("//td[@data-month=\""+monthStr+"\"]//a[text()=\""+dayStr+"\"]"));
+                break;
+            }
+        }
+    }
+
+
+
+
 
 }
